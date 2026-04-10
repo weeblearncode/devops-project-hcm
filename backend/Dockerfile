@@ -38,5 +38,5 @@ WORKDIR /app
 COPY --from=builder /app/package*.json ./
 RUN npm install --only=production
 COPY --from=builder /app ./
-EXPOSE 3000
+EXPOSE 8080
 CMD ["npm", "start"]
