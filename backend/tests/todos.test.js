@@ -60,7 +60,7 @@ describe('Todos API', () => {
       const deleteRes = await request(app)
          .delete(`/api/todos/${todoId}`);
 
-      expect(deleteRes.status).toBe(200);  // Will FAIL - 404!
+      expect(deleteRes.status).toBe(204);  // Will FAIL - 404!
    });
 
    // BROKEN TEST #4 - PUT endpoint not implemented!
