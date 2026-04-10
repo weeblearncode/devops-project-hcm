@@ -1,0 +1,60 @@
+# ===========================================
+# STUDENT TODO: Complete this Docker Compose file
+# ===========================================
+#
+# Requirements:
+# 1. Frontend service:
+#    - Build from ./frontend directory
+#    - Expose port 3000
+#    - Should depend on backend
+#
+# 2. Backend service:
+#    - Build from ./backend directory
+#    - Expose port 8080
+#    - Must have environment variables for database connection
+#    - Should depend on postgres and wait for it to be healthy
+#    - Add a healthcheck
+#
+# 3. Postgres service:
+#    - Use postgres:15-alpine image
+#    - Set POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD
+#    - Use a named volume for data persistence
+#    - Mount the init script from ./database/database.sql
+#    - Add a healthcheck
+#
+# 4. Define named volumes
+#
+# Hints:
+# - Research: "docker-compose healthcheck"
+# - Research: "docker-compose depends_on condition"
+# - Database env vars: DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
+#
+# Example healthcheck:
+#   healthcheck:
+#      test: ['CMD-SHELL', 'pg_isready -U postgres']
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+# ===========================================
+
+version: '3.8'
+
+services:
+  # STUDENT TODO: Define frontend service
+  frontend:
+    build: ./frontend
+    # TODO: Add ports, depends_on
+
+  # STUDENT TODO: Define backend service
+  backend:
+    build: ./backend
+    # TODO: Add ports, environment, depends_on, healthcheck
+
+  # STUDENT TODO: Define postgres service
+  postgres:
+    image: postgres:15-alpine
+    # TODO: Add environment, ports, volumes, healthcheck
+
+# STUDENT TODO: Define named volumes
+volumes:
+  postgres_data:
